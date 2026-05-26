@@ -9,3 +9,9 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+#text {
+  display: flex;
+  justify-content: center; /* Horizontal zentrieren */
+  align-items: center;    /* Vertikal zentrieren */
+}
