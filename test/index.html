@@ -36,15 +36,25 @@
                 .catch(error => console.error(`Error loading ${url}:`, error));
         }
 
-        function setActiveNav() {
+        function initHeader() {
             const path = window.location.pathname.replace(/\/+$/, '') || '/';
             document.querySelectorAll('.header-nav a').forEach(a => {
                 const href = a.getAttribute('href').replace(/\/+$/, '') || '/';
                 a.classList.toggle('active', href === path);
             });
+
+            const btn = document.querySelector('.header-menu-btn');
+            const dropdown = document.querySelector('.header-dropdown');
+            if (btn && dropdown) {
+                btn.addEventListener('click', e => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('open');
+                });
+                document.addEventListener('click', () => dropdown.classList.remove('open'));
+            }
         }
 
-        loadHTML('resources/header/header.html', 'header-placeholder', setActiveNav);
+        loadHTML('resources/header/header.html', 'header-placeholder', initHeader);
         loadHTML('resources/footer/footer.html', 'footer-placeholder');
         loadHTML('resources/topgames/topgames.html', 'topgames-placeholder', () => {
             const script = document.createElement('script');

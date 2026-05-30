@@ -10,8 +10,9 @@ const dummyGames = [
 function loadGames(games) {
     gameContainer.innerHTML = ''; // Clear current
     games.forEach(game => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
         card.className = 'game-card';
+        card.href = '#';
         card.innerHTML = `
             <div class="game-img"></div>
             <p>${game.title}</p>
