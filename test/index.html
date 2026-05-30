@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Header</title>
-  <link rel="stylesheet" href="header.css">
+    <meta charset="UTF-8">
+    <title>website</title>
+    <link rel="stylesheet" href="resources/header.css">
 </head>
 <body>
 
-  <header class="site-header">
+    <div id="header-placeholder"></div>
 
-    <div class="header-logo">
-      <!-- Place <img src="logo.png" alt="Logo"> here -->
-    </div>
+    <main>
+        <h1>why are you here</h1>
+    </main>
 
-    <nav class="header-nav">
-      <a href="#" class="active">Home</a>
-      <a href="#">Games</a>
-      <!--<a href="#">Develop</a>
-      <a href="#">Forum</a> -->
-    </nav>
+    <script>
 
-
-    <div class="header-right">
-
-
-      <a href="#" class="header-currency">70</a>
-
-      <a href="#" class="header-user">
-        <div class="header-user-avatar">
-          <!-- Optional: <img src="avatar.png" alt=""> -->
-        </div>
-        NAME
-      </a>
-
-
-      <button class="header-menu-btn" aria-label="Open menu">
-        <div class="hamburger-icon">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </button>
-    </div>
-  </header>
-
+        fetch('resources/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            })
+            .catch(error => console.error('Error loading header:', error));
+    </script>
 </body>
 </html>
