@@ -1,0 +1,56 @@
+.games-section {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.top-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.top-text {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+
+.divider {
+    flex-grow: 1;
+    height: 1px;
+    background: linear-gradient(to right, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.05) 100%);
+}
+
+.game-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+}
+
+.game-card {
+    width: 140px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.game-img {
+    width: 140px;
+    height: 100px;
+    background-color: #0078cf;
+    border: 1px solid #005a9e;
+    border-radius: 4px;
+}
+
+.game-card p {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    white-space: nowrap;
+}

@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>website</title>
-    <link rel="stylesheet" href="resources/header.css">
+    
+    <link rel="stylesheet" href="resources/header/header.css">
+    <link rel="stylesheet" href="resources/topgames/styles.css">
+    
     <style>
         body {
             margin: 0;
             padding: 0;
+            font-family: sans-serif;
+        }
+        main {
+            padding: 20px;
         }
     </style>
 </head>
@@ -17,16 +24,29 @@
 
     <main>
         <h1>why are you here</h1>
+        <div id="topgames-placeholder"></div>
     </main>
 
     <script>
+        function loadHTML(url, elementId, callback) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                    if (callback) callback();
+                })
+                .catch(error => console.error(`Error loading ${url}:`, error));
+        }
 
-        fetch('resources/header.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('header-placeholder').innerHTML = data;
-            })
-            .catch(error => console.error('Error loading header:', error));
+        // load header
+        loadHTML('resources/header/header.html', 'header-placeholder');
+
+        // load top games
+        loadHTML('resources/topgames/topgames.html', 'topgames-placeholder', () => {
+            const script = document.createElement('script');
+            script.src = 'resources/topgames/topgames.js';
+            document.body.appendChild(script);
+        });
     </script>
 </body>
 </html>
