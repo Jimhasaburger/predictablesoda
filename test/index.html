@@ -29,8 +29,16 @@
                 .catch(error => console.error(`Error loading ${url}:`, error));
         }
 
+        function setActiveNav() {
+            const path = window.location.pathname.replace(/\/+$/, '') || '/';
+            document.querySelectorAll('.header-nav a').forEach(a => {
+                const href = a.getAttribute('href').replace(/\/+$/, '') || '/';
+                a.classList.toggle('active', href === path);
+            });
+        }
+
         // load header
-        loadHTML('resources/header/header.html', 'header-placeholder');
+        loadHTML('resources/header/header.html', 'header-placeholder', setActiveNav);
         // load footer
         loadHTML('resources/footer/footer.html', 'footer-placeholder');
         // load top games
