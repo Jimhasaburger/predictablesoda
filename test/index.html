@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="resources/topgames/styles.css">
     <link rel="stylesheet" href="resources/footer/styles.css">
     <link rel="stylesheet" href="styles.css">
+    <style>body { visibility: hidden; }</style>
 </head>
 <body>
 
@@ -19,11 +20,17 @@
     </main>
     <div id="footer-placeholder"></div>
     <script>
+        let loaded = 0;
+        function fragmentLoaded() {
+            if (++loaded === 3) document.body.style.visibility = 'visible';
+        }
+
         function loadHTML(url, elementId, callback) {
             fetch(url)
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById(elementId).innerHTML = data;
+                    fragmentLoaded();
                     if (callback) callback();
                 })
                 .catch(error => console.error(`Error loading ${url}:`, error));
@@ -37,11 +44,8 @@
             });
         }
 
-        // load header
         loadHTML('resources/header/header.html', 'header-placeholder', setActiveNav);
-        // load footer
         loadHTML('resources/footer/footer.html', 'footer-placeholder');
-        // load top games
         loadHTML('resources/topgames/topgames.html', 'topgames-placeholder', () => {
             const script = document.createElement('script');
             script.src = 'resources/topgames/topgames.js';
