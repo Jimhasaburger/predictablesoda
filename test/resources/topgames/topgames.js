@@ -2,9 +2,9 @@ const gameContainer = document.getElementById('game-container');
 
 // Dummy Data
 const dummyGames = [
-    { title: "Game #1" },
-    { title: "Game #2" },
-    { title: "Game #3" }
+    { title: "[/] Game #1" },
+    { title: "[/] Game #2" },
+    { title: "[/] Game #3" }
 ];
 
 function loadGames(games) {
