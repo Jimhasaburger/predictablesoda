@@ -12,6 +12,8 @@ body, html {
 
 #text {
   display: flex;
-  justify-content: center; /* Horizontal zentrieren */
-  align-items: center;    /* Vertikal zentrieren */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100vh;
 }
